@@ -1,0 +1,23 @@
+composer create-project --prefer-dist laravel/laravel Maisonneuve2295428 "8.*"
+-----
+php artisan make:model Student
+php artisan make:model City
+-----
+php artisan make:migration create_cities_table
+php artisan make:factory CityFactory -m City
+php artisan migrate
+
+php artisan tinker
+\App\Models\City::factory()->times(15)->create()
+-----
+php artisan make:migration create_students_table
+php artisan make:factory StudentFactory -m Student
+php artisan migrate
+
+php artisan tinker
+\App\Models\Student::factory()->times(100)->create()
+
+-----
+php artisan make:controller StudentController
+php artisan make:controller CityController
+-----
