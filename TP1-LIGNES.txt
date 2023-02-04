@@ -21,3 +21,8 @@ php artisan tinker
 php artisan make:controller StudentController
 php artisan make:controller CityController
 -----
+
+
+lien git: https://github.com/Pe-nelo-pe/tp_laravel
+
+lien webDev: https://e2295428.webdev.cmaisonneuve.qc.ca/tp_laravel/
