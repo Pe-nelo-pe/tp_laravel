@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\City;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 
 class StudentController extends Controller
@@ -41,28 +43,35 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // $newStudent = Student::create([
-        //     'name'=> $request->name,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'adress' => $request->adress,
-        //     'city_id' => $request->city_id,
-        //     'birthday' => $request->birthday,
-        // ]);
+       
 
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'adress' => 'required',
+            'address' => 'required',
             'city_id' => 'required|numeric',
             'birthday' => 'required|date',
             'email'=> 'required|email|unique:users',
-            
+            'password'=>['required', 'max:20', Password::min(2)->mixedCase()->letters()->numbers()]
         ]);
 
-       $newStudent = new Student;
-       $newStudent->fill($request->all());
-       $newStudent->save();
+        $newUser = User::create([
+            'name'=> $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+
+        ]);
+        $newStudent = new Student;
+         $newStudent = Student::create([
+            'id'=> $newUser->id,
+            'name'=> $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city_id' => $request->city_id,
+            'birthday' => $request->birthday,
+        ]);
+        $newStudent->save();
 
         return redirect(route('students.index'))->withSuccess('Nouvel étudiant bien ajouté'); // amene a la page avec tous les articles
     }
@@ -106,7 +115,7 @@ class StudentController extends Controller
          $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'adress' => 'required',
+            'address' => 'required',
             'city_id' => 'required|numeric',
             'birthday' => 'required|date',
             'email'=> 'required|email',
@@ -117,7 +126,7 @@ class StudentController extends Controller
             'name'=> $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'adress' => $request->adress,
+            'address' => $request->address,
             'city_id' => $request->city_id,
             'birthday' => $request->birthday,
         ]);

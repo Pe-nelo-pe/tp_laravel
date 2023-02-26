@@ -16,19 +16,29 @@
 
 <div class="d-flex justify-content-center">
     <div class="bg-white p-4 w-50">
+      <div>
+        @if($errors)
+          <ul>
+            @foreach($errors->all() as $error)
+            <li class="text-danger">{{ $error }}</li>
+            @endforeach
+          </ul>
+        @endif
+      </div>
         <form action="" method="post">
           @csrf
-          <input type="text" id="name" name="name" class="form-control mb-4 px-0" placeholder="Nom complet">
-          <input type="email" id="email" name="email" class="form-control mb-4 px-0" placeholder="Adresse courriel">
-          <input type="text" id="adress" name="adress" class="form-control mb-4 px-0" placeholder="Adresse">
+          <input type="text" id="name" name="name" class="form-control mb-4 px-0" placeholder="Nom complet" value="{{old('name')}}">
+          <input type="email" id="email" name="email" class="form-control mb-4 px-0" placeholder="Adresse courriel" value="{{old('email')}}">
+          <input type="text" id="address" name="address" class="form-control mb-4 px-0" placeholder="Adresse" value="{{old('address')}}">
           <label for="city_id">Ville:</label>
-          <select name="city_id" id="city_id">
+          <select name="city_id" id="city_id" class="form-control">
             @foreach($cities as $city)
             <option value="{{ $city->id }}">{{ $city->name }}</option>
             @endforeach
           </select>
-          <input type="text" id="phone" name="phone" class="form-control mb-4 px-0" placeholder="Téléphone">
+          <input type="text" id="phone" name="phone" class="form-control mb-4 px-0" placeholder="Téléphone" value="{{old('phone')}}">
           <input type="date" id="birthday" name="birthday" class="form-control mb-4 px-0" placeholder="Date de naissance">
+          <input type="password" id="password" name="password" class="form-control mb-4 px-0">
           <button class="btn btn-primary" type="submit" >Enregistrer</button>
         </form>
       </div>

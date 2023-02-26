@@ -22,7 +22,7 @@
           <input type="text" id="name" name="name" class="form-control mb-4 px-0" placeholder="Nom complet" value="{{ $student->name }}">
           <input type="email" id="email" name="email" class="form-control mb-4 px-0" placeholder="Adresse courriel"
           value="{{ $student->email }}">
-          <input type="text" id="adress" name="adress" class="form-control mb-4 px-0" placeholder="Adresse" value="{{ $student->adress }}">
+          <input type="text" id="address" name="address" class="form-control mb-4 px-0" placeholder="Adresse" value="{{ $student->address }}">
           <label for="city_id">Ville:</label>
           <select name="city_id" id="city_id">
             @foreach($cities as $city)

@@ -17,14 +17,20 @@ class Student extends Model
 
     //  $fillable - les champs qu'on autorise pour la création ou la modification
     protected $fillable = [
+        'id',
         'name',
         'email',
-        'adress',
+        'address',
         'city_id',
         'phone',
         'birthday',
        
     ];
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 
     
 }

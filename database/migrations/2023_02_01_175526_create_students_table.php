@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('adress');
+            $table->string('address');
             $table->string('email')->unique();
             $table->date('birthday');
             $table->foreignId('city_id')->constrained('cities')->onUpdate('cascade')->onDelete('cascade');

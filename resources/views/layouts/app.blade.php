@@ -11,7 +11,8 @@
 
 <head>
   <meta charset="utf-8">
-<title> @yield('title')</title>
+<title> @yield(@trans('title')) </title>
+
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,15 +40,45 @@
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 
+  <link href= "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel= "stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet">
+
+
 </head>
 <body>
     <header class="navigation fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="{{ route('students.index') }}"><img src="{{asset('images/logo.png')}}" alt="Egen"></a>
+            <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('images/logo.jpg')}}" alt="Home" class="w-50"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
             aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="container-fluid">
+            @if(Auth::check())
+                <a class="navbar-brand" href="{{ route('dashboard', Auth::user()->id) }}">@lang('lang.welcome')  {{Auth::user()->name}} </a>
+            @else 
+                <a class="navbar-brand" href="#">@lang('lang.welcome') @lang('lang.nav_guest')</a>
+             @endif
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+
+                    @guest
+                            <a class="nav-link" href="{{ route('auth.create') }}">@lang('lang.nav_register')</a>
+                            <a class="nav-link" href="{{ route('login') }}">@lang('lang.nav_login')</a>
+                    @else
+      
+                            <a class="nav-link" href="{{ route('logout') }}">@lang('lang.nav_logout')</a>  
+                    @endguest
+
+                        <a class="nav-link" href="{{ route('lang', 'en') }}"><i class="flag flag-united-kingdom"></i></a>
+                        <a class="nav-link" href="{{ route('lang', 'fr') }}"><i class="flag flag-france"></i></a> 
+                    </div>
+                </div>
+            </div>
 
             
         </nav>
@@ -69,11 +100,11 @@
                 <div class="col-md-3 col-6">
                 <h4 class="text-white mb-5">Maisonneuve</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-light d-block mb-3">Service</a></li>
-                    <li><a href="#" class="text-light d-block mb-3">Contact</a></li>
-                    <li><a href="#" class="text-light d-block mb-3">About us</a></li>
-                    <li><a href="#" class="text-light d-block mb-3">Blog</a></li>
-                    <li><a href="#" class="text-light d-block mb-3">Support</a></li>
+                    <li><a href="#" class="text-light d-block mb-3">@lang('lang.footer_contact')</a></li>
+                    <li><a href="#" class="text-light d-block mb-3">@lang('lang.footer_service')</a></li>
+                    <li><a href="#" class="text-light d-block mb-3">@lang('lang.footer_about')</a></li>
+                    <li><a href="#" class="text-light d-block mb-3">@lang('lang.footer_blog')</a></li>
+                    <li><a href="#" class="text-light d-block mb-3">@lang('lang.footer_support')</a></li>
                 </ul>
                 </div>
                 
@@ -85,7 +116,7 @@
             <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-left">
-                <p class="text-light mb-0">Copyright &copy; 2019 a theme by <a class="text-gradient-primary" href="https://themefisher.com">themefisher.com</a>
+                <p class="text-light mb-0">@lang('lang.footer_copy') &copy; 2019 @lang('lang.footer_theme') <a class="text-gradient-primary" href="https://themefisher.com">themefisher.com</a>
                 </p>
                 </div>
                 <div class="col-md-6">

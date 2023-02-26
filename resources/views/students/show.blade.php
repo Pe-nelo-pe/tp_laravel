@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                   <th scope="row">Addresse</th>
-                  <td class="text-right">{{ $student->adress }}</td>
+                  <td class="text-right">{{ $student->address }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Téléphone</th>

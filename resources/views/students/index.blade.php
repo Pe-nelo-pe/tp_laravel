@@ -2,18 +2,6 @@
 @section('title', 'Bienvenue')
 @section('content')
 
-<!-- banner -->
-<section class="banner bg-cover position-relative d-flex justify-content-center align-items-center mb-5"
-  data-background="{{asset('images/banner/banner2.jpg')}}">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h1 class="display-1 text-white font-weight-bold font-primary">Bienvenue au Collège de Maisonneuve</h1>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /banner -->
 
 <section class="container">
   @if(session('success'))
@@ -22,7 +10,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
-  <a href="{{ route('students.create') }}" class="btn btn-outline-primary mb-4 float-right"> Ajouter un étudiant</a>
+  <a href="{{ route('auth.create') }}" class="btn btn-outline-primary mb-4 float-right"> Ajouter un étudiant</a>
   <table class="table mb-5">
     <thead>
       <tr>
@@ -36,7 +24,7 @@
       <tr>
         <th scope="row"><a href="{{ route('students.show', $student->id)}}">{{ $student->name }}</a></th>
         <td>{{ $student->email }}</td>
-        <td>{{ $student->adress }}</td>
+        <td>{{ $student->address }}</td>
 
       </tr>
     @endforeach
