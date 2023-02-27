@@ -1,2 +1,7 @@
 Lien Git : https://github.com/Pe-nelo-pe/tp_laravel
-Lien WebDev : 
+
+
+Lien WebDev :https://e2295428.webdev.cmaisonneuve.qc.ca/tp2_laravel/ 
+
+Email: marcos@gmail.com
+Password: Marcos1234
