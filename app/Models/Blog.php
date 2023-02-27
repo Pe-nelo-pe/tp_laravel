@@ -46,7 +46,7 @@ class Blog extends Model
 
         $query = $this::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"), DB::raw("(case when content$lang is null then content else content$lang end) as content"), 'user_id', 'created_at')
                 ->orderBy('id', 'desc')
-                ->paginate(5);
+                ->paginate(8);
         return $query;
     }
 
@@ -56,9 +56,10 @@ class Blog extends Model
     public function selectBlog($id){
         $lang = session()->get('localeDB');
 
-        $query = $this::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"), DB::raw("(case when content$lang is null then content else content$lang end) as content"), 'user_id')
+        $query = $this::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"), DB::raw("(case when content$lang is null then content else content$lang end) as content"), 'user_id', 'created_at')
             ->where('id', $id)
             ->get();
         return $query;
     }
 }
+

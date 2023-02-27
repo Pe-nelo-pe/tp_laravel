@@ -33,17 +33,22 @@
           value="{{ $user->email }}">
           <input type="text" id="address" name="address" class="form-control mb-4" placeholder="@lang('lang.user_address')" value="{{ $student->address }}">
           <label for="city_id">@lang('lang.user_city'):</label>
-          <select name="city_id" id="city_id">
+          <select name="city_id" id="city_id" class="mb-4">
             @foreach($cities as $city)
             <option value="{{ $city->id }}" {{$student->city_id == $city->id  ? 'selected' : ''}}>{{ $city->name }}</option>
             @endforeach
           </select>
-          <input type="text" id="phone" name="phone" class="form-control mb-4" placeholder="@lang('lang.user_phone')" value="{{ $student->phone }}">
+          <input type="text" id="phone" name="phone" class="form-control my-4" placeholder="@lang('lang.user_phone')" value="{{ $student->phone }}">
           <input type="date" id="birthday" name="birthday" class="form-control mb-4" placeholder="Date de naissance" value="{{ $student->birthday }}">
-          <button class="btn btn-primary" type="submit" >@lang('lang.save')</button>
+          <div class="d-flex justify-content-between justify-content-between mt-4">
+            <button class="btn btn-primary" type="submit" >@lang('lang.save')</button>
+            <a href="{{ route ('dashboard')}}" class="btn btn-danger">@lang('lang.btn_cancel')</a>
+
+          </div>
+
         </form>
       </div>
-      
+
 </div>
 
 @endsection

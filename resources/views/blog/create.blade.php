@@ -34,17 +34,17 @@
               <input type="text" id="title" name="title" class="form-control" value="{{old('title')}}">
             </div>
 
-            <div class="control-group col-12">
+            <div class="control-group col-12 mt-3">
               <label for="content">Content</label>
               <textarea type="text" id="content" name="content" class="form-control">{{old('content')}}</textarea>
             </div>
 
-             <div class="control-group col-12">
+             <div class="control-group col-12 mt-5">
               <label for="title_fr">Titre</label>
               <input type="text" id="title_fr" name="title_fr" class="form-control" value="{{old('title_fr')}}">
             </div>
 
-            <div class="control-group col-12">
+            <div class="control-group col-12 mt-3">
               <label for="content_fr">Article</label>
               <textarea type="text" id="content_fr" name="content_fr" class="form-control">{{old('content_fr')}}</textarea>
             </div>
@@ -52,7 +52,7 @@
            
           </div>
 
-          <div class="card-footer">
+          <div class="card-footer d-flex justify-content-between">
             <input type="submit" name="" id="" value="@lang('lang.save')" class="btn btn-success">
             <a href="{{ route ('blog.index')}}" class="btn btn-danger">@lang('lang.btn_cancel')</a>
 

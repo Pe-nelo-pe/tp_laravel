@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="display-1 text-white font-weight-bold font-primary">@lang('lang.title_signup')</h1>
+        <h1 class=" text-white font-weight-bold font-primary">@lang('lang.title_signup')</h1>
       </div>
     </div>
   </div>
@@ -16,15 +16,16 @@
 
 <div class="d-flex justify-content-center my-5">
     <div class="bg-white p-4 w-50">
-      <div>
-        @if($errors)
+      @if($errors)
+      <div class="alert alert-danger alert-dismissible fade show " role="alert" >
           <ul>
             @foreach($errors->all() as $error)
-            <li class="text-danger">{{ $error }}</li>
+            <li class="text-danger py-2">{{ $error }}</li>
             @endforeach
           </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         @endif
-      </div>
         <form action="" method="post">
           @csrf
           <input type="text" id="name" name="name" class="form-control mb-4" placeholder="@lang('lang.user_name')" value="{{old('name')}}">
@@ -34,7 +35,7 @@
           <input type="text" id="address" name="address" class="form-control mb-4" placeholder="@lang('lang.user_address')" value="{{old('address')}}">
 
           <label for="city_id">@lang('lang.user_city'):</label>
-          <select name="city_id" id="city_id" class="form-control">
+          <select name="city_id" id="city_id" class="form-control mb-4">
             @foreach($cities as $city)
             <option value="{{ $city->id}}" {{$city->id == old('$city->id')  ? 'selected' : ''}}>{{ $city->name }}</option>
             @endforeach
@@ -44,10 +45,10 @@
 
           <input type="date" id="birthday" name="birthday" class="form-control mb-4" value="{{old('birthday')}}">
 
-          <input type="password" id="password" name="password" placeholder="@lang('lang.user_pass')" class="form-control mb-4 px-0">
+          <input type="password" id="password" name="password" placeholder="@lang('lang.user_pass')" class="form-control mb-4">
 
           <div class="d-grid mx-auto">
-            <input type="submit" value="@lang('lang.save')" class="btn btn-dark btn-block">
+            <input type="submit" value="@lang('lang.save')" class="btn btn-primary btn-block">
           </div>
         </form>
       </div>

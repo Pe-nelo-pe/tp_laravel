@@ -68,14 +68,14 @@ class AuthController extends Controller
             'password'=>['required', 'max:20', Password::min(2)->mixedCase()->letters()->numbers()]
         ]);
 
-  
+
        $user = User::create([
             'name'=> $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
 
         ]);
-       $user->password = Hash::make($request->password);
+       
 
         $newUser = Student::create([
             'id'=> $user->id,
@@ -89,7 +89,7 @@ class AuthController extends Controller
    
 
 
-       return redirect(route('login'))->withSuccess(trans('lang.msg_1'));
+       return redirect(route('login'))->withSuccess(trans('lang.signedup'));
     }
 
 

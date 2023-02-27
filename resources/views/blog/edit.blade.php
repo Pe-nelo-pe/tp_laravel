@@ -34,21 +34,19 @@
               <input type="text" id="title" name="title" class="form-control" value='{{ $blog->title}}'>
             </div>
 
-            <div class="control-group col-12">
+            <div class="control-group col-12 mt-3">
               <label for="content">Content</label>
               <textarea type="text" id="content" name="content" class="form-control">{{ $blog->content }}</textarea>
             </div>
-
-           
           </div>
 
           <div class="card-body">
-            <div class="control-group col-12">
+            <div class="control-group col-12 ">
               <label for="title_fr">Titre de l'article</label>
               <input type="text" id="title_fr" name="title_fr" class="form-control" value='{{ $blog->title_fr}}'>
             </div>
 
-            <div class="control-group col-12">
+            <div class="control-group col-12 mt-3">
               <label for="content_fr">Article</label>
               <textarea type="text" id="content_fr" name="content_fr" class="form-control">{{ $blog->content_fr }}</textarea>
             </div>
@@ -56,7 +54,7 @@
            
           </div>
 
-          <div class="card-footer">
+          <div class="card-footer  d-flex justify-content-between">
             <input type="submit" name="" id="" value="@lang('lang.btn_update')" class="btn btn-success">
             <a href="{{ route ('blog.index')}}" class="btn btn-danger">@lang('lang.btn_cancel')</a>
 

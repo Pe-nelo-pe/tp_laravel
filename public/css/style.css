@@ -32,6 +32,10 @@ p {
   font-family: "Poppins", sans-serif;
 }
 
+
+.mt-6{
+  margin-top: 200px;
+}
 .lead {
   font-size: 18px;
 }
@@ -39,6 +43,22 @@ p {
 .display-1 {
   font-size: 100px;
 }
+
+
+.w-35{
+  width: 35%;
+}
+
+.card>hr{
+  margin: 0;
+}
+
+.pagination * {
+
+  margin: 0 5px 0 5px;
+}
+
+
 @media (max-width: 575px) {
   .display-1 {
     font-size: 50px;
@@ -225,6 +245,26 @@ h6, .h6 {
   padding: 1rem 1rem;
 }
 
+.btn-danger{
+  background-color: rgb(219, 4, 4);
+  border: none;
+}
+
+.btn-danger:hover{
+  background-color: rgb(219, 4, 4);
+  border: none;
+  
+}
+
+.btn-success{
+  border: none;
+}
+
+.c-disabled{
+  pointer-events: none;
+  background-color: #86869b;
+  color: white;
+}
 body {
   background-color: #fff;
   overflow-x: hidden;
@@ -500,7 +540,7 @@ footer .section{
 }
 
 .shadow {
-  box-shadow: 0px 46px 65px 0px rgba(181, 188, 236, 0.16) !important;
+   box-shadow: 0px 18px 18px 0px rgba(20, 28, 91, 0.19) !important;
 }
 
 .bg-gradient-primary {
@@ -518,7 +558,7 @@ footer .section{
 /* form control */
 .form-control {
   height: 50px;
-  border-radius: 0;
+  border-radius: 10px;
   border: 0;
   border-bottom: 1px solid #d2d2e2;
 }
@@ -978,7 +1018,8 @@ footer .overlay-image {
 
 .card {
   border: 0;
-  border-radius: 0;
+  border-radius: 10px;
+
 }
 .card-img-top {
   border-radius: 0;
@@ -994,3 +1035,12 @@ footer .overlay-image {
   border: 0;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+.navbar .navbar-brand:hover{
+  color: rgb(162, 162, 162);
+}
+
+.test a.text-primary:focus, .test > a:hover{
+  color:#07085d;
+}

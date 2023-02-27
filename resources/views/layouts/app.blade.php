@@ -33,28 +33,35 @@
   <!-- card slider -->
   <link rel="stylesheet" href="{{asset('plugins/card-slider/css/style.css')}}">
 
-  <!-- Main Stylesheet -->
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  
   <!--Favicon-->
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
-
+  
   <link href= "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel= "stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+    <!-- Main JS -->
+  <link href="{{asset('js/script.js')}}" rel="stylesheet">
+  
+  
 
 </head>
 <body>
     <header class="navigation fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('images/logo.jpg')}}" alt="Home" class="w-50"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('images/logo.jpg')}}" alt="Home" class="w-35"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse container-fluid justify-content-end">
             @if(Auth::check())
                 <a class="navbar-brand" href="{{ route('dashboard', Auth::user()->id) }}">@lang('lang.welcome')  {{Auth::user()->name}} </a>
             @else 
@@ -63,7 +70,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
                     <div class="navbar-nav">
 
                     @guest

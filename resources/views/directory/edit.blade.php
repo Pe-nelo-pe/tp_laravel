@@ -42,7 +42,7 @@
           </div>
 
 
-          <div class="card-footer">
+          <div class="card-footer d-flex justify-content-between">
             <input type="submit" name="" id="" value="@lang('lang.btn_update')" class="btn btn-success">
             <a href="{{ route ('file.index')}}" class="btn btn-danger">@lang('lang.btn_cancel')</a>
 

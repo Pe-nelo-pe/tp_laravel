@@ -15,12 +15,11 @@ return [
   'file' => 'Fichiers',
 
   'empty' => 'Rien à voir ici',
+  'coming' => 'À venir',
 
-  'reading_title' => 'Bonne lecture',
-  'title_list' => 'Liste des articles',
+
  
-
-  'msg_1' => 'Vous êtes bien enregistré',
+'signedup' => 'Vous êtes inscrit',
 
 
 //layout.app

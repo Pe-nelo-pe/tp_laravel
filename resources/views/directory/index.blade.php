@@ -22,7 +22,7 @@
         @forelse($directories as $directory)
         <div class="card d-flex flex-row justify-content-between p-3 mt-3">
             <div class="">
-                <h2>{{ $directory->name }}</h2>
+                <h4>{{ $directory->name }}</h4>
                 <div>
                     <p> {{ $directory->dirHasUser->name }}</p>
                     <small> {{ $directory->created_at }}</small>
@@ -30,8 +30,8 @@
             </div>
             
                 
-            @if(auth()->user()->id == $directory->user_id)
             <div class=" d-flex align-items-center justify-content-between">
+            @if(auth()->user()->id == $directory->user_id)
                 <div class="col-4">
                     <a href="{{ route('file.edit', $directory->id)}}" class="btn btn-success">@lang('lang.btn_update')</a>
                 </div>
@@ -40,7 +40,7 @@
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">@lang('lang.btn_delete')</button>
                 </div>
             @endif
-                <a href="{{ route('file.download', $directory->id) }}" ><i class="fas fa-download px-3 h2"></i></a>
+                <a href="{{ route('file.download', $directory->id) }}" ><i class="fas fa-download px-3 h3"></i></a>
             </div>
                 
                                                 
@@ -75,8 +75,8 @@
         
     </div>
     
-    <div class="mb-5 d-flex justify-content-center">
-        {{$directories}}
+    <div class="my-5 d-flex justify-content-center">
+            {{$directories}}
     </div>
 
 

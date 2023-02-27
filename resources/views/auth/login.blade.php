@@ -14,13 +14,13 @@
 </section>
 <!-- /page-title -->
 
-<main class="login-form">
+<main class="login-form my-5">
     <div class="container" >
         <div class="row justify-content-center">
             <div class="col-md-4 pt-4">
                 <div class="card">
                   
-                    <div class="card-body">
+                    <div class="card-body ">
                       @if($errors)
                         <ul>
                           @foreach($errors->all() as $error)
@@ -35,7 +35,7 @@
                         </div>
                         
                       @endif
-                        <form action="{{route('user.auth')}}" method="post">
+                        <form action="{{route('user.auth')}}" method="post" class="">
                           @csrf
                   
                           <div class="form-group mb-3">
@@ -51,7 +51,7 @@
                               @endif
                           </div>
                           <div class="d-grid mx-auto">
-                              <input type="submit" value="@lang('lang.connection')" class="btn btn-dark btn-block">
+                              <input type="submit" value="@lang('lang.connection')" class="btn btn-primary btn-block">
                           </div>
                         </form>
                    

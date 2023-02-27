@@ -18,34 +18,29 @@
 <div class="container my-5">
   <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">@lang('lang.btn_back')</a>
   <div class="row">
-    <div class="col-12 pt-2 mt-4">
-      <h4 class="display-one mt-2">{{ $blog->title }}</h4>
-      <hr>
-      <p>{{ $blog->content }}</p> 
-
-      <strong>Auteur: {{ $blog->blogHasUser->name }}</strong>
-      <div>
-
+    <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+      <div class="">
+        <h4 class="display-one mt-2">{{ $blog->title }}</h4> <small>Par : {{ $blog->blogHasUser->name }}</small>
       </div>
-      <hr>
+      @if(auth()->user()->id == $blog->user_id)
+      <div class="d-flex gap-4">
+        <div class="">
+          <a href="{{ route('blog.edit', $blog->id)}}" class="btn btn-success">@lang('lang.btn_update')</a>
+        </div>
+        <div class="">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            @lang('lang.btn_delete')
+          </button>
+        </div>
+      </div>
+      @endif
     </div>
-
+    <hr>
+    <p>{{ $blog->content }}</p> 
+    <hr>
+    <small>{{ $blog->created_at }}</small>
   </div>
-
-
-  @if(auth()->user()->id == $blog->user_id)
-    <div class="row text-center mb-2">
-      <div class="col-4">
-        <a href="{{ route('blog.edit', $blog->id)}}" class="btn btn-success">@lang('lang.btn_update')</a>
-      </div>
-      <div class="col-4">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-         @lang('lang.btn_delete')
-        </button>
-      </div>
-    </div>
-  @endif
 </div>
 
 

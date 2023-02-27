@@ -16,13 +16,12 @@ return [
   'file' => 'Files',
 
   'empty' => 'Nothing to see here',
+  'coming' => 'Coming',
 
-  'reading_title' => 'Good reading',
-  'title_list' => 'List of articles',
+
   
   
-  
-  'msg_1' => 'You are sign in',
+  'signedup' => 'You are signed up',
 
 // layout.app
   'home' => 'Home', 

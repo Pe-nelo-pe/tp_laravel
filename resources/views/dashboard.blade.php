@@ -16,11 +16,34 @@
 <!-- /page-title -->
 
 
-<section class="container">
-  <h2>Profile de {{Auth::user()->name}}</h2>
-  <a href="{{ route('user.edit', Auth::user()->id)}}" class="btn btn-primary">@lang('lang.btn_update')</a>
-  <a href="{{ route('blog.index')}}" class="btn btn-primary">@lang('lang.blog')</a>
-  <a href="{{ route('file.index')}}" class="btn btn-primary">@lang('lang.file')</a>
+<section class="container my-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Profile de {{Auth::user()->name}}</h2>
+    <a href="{{ route('user.edit', Auth::user()->id)}}" class="btn btn-primary">@lang('lang.btn_update')</a>
+  </div>
+
+  <div class="row text-center  mt-5">
+    <div class="col-sm-3 ">
+        <a href="{{ route('blog.index')}}" class=" card bg-secondary text-primary text-uppercase display-6 py-5 shadow">@lang('lang.blog')</a>
+    </div>
+
+    <div class="col-sm-3">
+ 
+        <a href="{{ route('file.index')}}" class="card bg-secondary text-primary text-uppercase display-6 py-5 shadow">@lang('lang.file')</a>
+     
+    </div>
+
+    <div class="col-sm-3 ">
+      
+        <a href="#" class="card text-uppercase display-6 py-5 c-disabled shadow">@lang('lang.coming')</a>
+    
+    </div>  
+
+    <div class="col-sm-3 ">
+        <a href="#" class="card text-uppercase display-6 py-5 c-disabled shadow">@lang('lang.coming')</a>
+    </div> 
+    
+  </div> 
 
 </section>
 

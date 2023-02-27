@@ -14,22 +14,27 @@
     </section>
     <!-- /page-title -->
 
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="d-flex justify-content-between">
             <h3>@lang('lang.title_list_blog')</h3>
             <a href="{{ route('blog.create') }}" class="btn btn-outline-primary">@lang('lang.btn_add')</a>
         </div>
         
-        @forelse($blogs as $blog)
-                
-        <div class="card-body">
-            <a href="{{ route('blog.show', $blog->id)}}">{{ $blog->title }}</a>
-            <p> {{ $blog->blogHasUser->name }}</p>
-        </div>
-        @empty
-        <li class="text-danger">@lang('lang.empty')</li>
-        @endforelse
-                                
+        <div class="row d-flex mt-5  ">
+            @forelse($blogs as $blog)
+            
+                <div class="col-sm-3 p-0 ">        
+                    <div class="card p-3 m-2 ">
+                        <a href="{{ route('blog.show', $blog->id)}}" class="h4">{{ $blog->title }}</a>
+                        <hr>
+                        <small class="mt-2"> {{ $blog->blogHasUser->name }}</small>
+                    </div>
+                </div>
+            
+            @empty
+            <li class="text-danger">@lang('lang.empty')</li>
+            @endforelse
+        </div>                        
     </div>
 
     <div class="mb-5 d-flex justify-content-center">
